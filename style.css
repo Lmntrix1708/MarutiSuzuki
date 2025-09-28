@@ -1,0 +1,1868 @@
+:root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for opacity control */
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* RGB versions for opacity control (Dark Mode) */
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    /* Background color tokens (Dark Mode) */
+    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
+    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
+    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
+    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
+    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
+    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
+    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
+
+    /* Semantic Color Tokens (Dark Mode) */
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    /* Common style patterns - updated for dark mode */
+    --focus-ring: 0 0 0 3px var(--color-focus-ring);
+    --focus-outline: 2px solid var(--color-primary);
+    --status-bg-opacity: 0.15;
+    --status-border-opacity: 0.25;
+    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+    /* RGB versions for dark mode */
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+/* Data attribute for manual theme switching */
+[data-color-scheme="dark"] {
+  /* RGB versions for opacity control (dark mode) */
+  --color-gray-400-rgb: 119, 124, 124;
+  --color-teal-300-rgb: 50, 184, 198;
+  --color-gray-300-rgb: 167, 169, 169;
+  --color-gray-200-rgb: 245, 245, 245;
+
+  /* Colorful background palette - Dark Mode */
+  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
+  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
+  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
+  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
+  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
+  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
+  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
+
+  /* Semantic Color Tokens (Dark Mode) */
+  --color-background: var(--color-charcoal-700);
+  --color-surface: var(--color-charcoal-800);
+  --color-text: var(--color-gray-200);
+  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+  --color-primary: var(--color-teal-300);
+  --color-primary-hover: var(--color-teal-400);
+  --color-primary-active: var(--color-teal-800);
+  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+  --color-error: var(--color-red-400);
+  --color-success: var(--color-teal-300);
+  --color-warning: var(--color-orange-400);
+  --color-info: var(--color-gray-300);
+  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+  --color-btn-primary-text: var(--color-slate-900);
+  --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
+  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+  /* Common style patterns - updated for dark mode */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for dark mode */
+  --color-success-rgb: var(--color-teal-300-rgb);
+  --color-error-rgb: var(--color-red-400-rgb);
+  --color-warning-rgb: var(--color-orange-400-rgb);
+  --color-info-rgb: var(--color-gray-300-rgb);
+}
+
+[data-color-scheme="light"] {
+  /* RGB versions for opacity control (light mode) */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+
+  /* RGB versions for light mode */
+  --color-success-rgb: var(--color-teal-500-rgb);
+  --color-error-rgb: var(--color-red-500-rgb);
+  --color-warning-rgb: var(--color-orange-500-rgb);
+  --color-info-rgb: var(--color-slate-500-rgb);
+}
+
+/* Base styles */
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+h2 {
+  font-size: var(--font-size-3xl);
+}
+h3 {
+  font-size: var(--font-size-2xl);
+}
+h4 {
+  font-size: var(--font-size-xl);
+}
+h5 {
+  font-size: var(--font-size-lg);
+}
+h6 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+code,
+pre {
+  font-family: var(--font-family-mono);
+  font-size: calc(var(--font-size-base) * 0.95);
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: var(--space-1) var(--space-4);
+}
+
+pre {
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn--secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-secondary);
+}
+
+.btn--sm {
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  padding: var(--space-10) var(--space-20);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form elements */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+textarea.form-control {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+}
+
+select.form-control {
+  padding: var(--space-8) var(--space-12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--select-caret-light);
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+/* Add a dark mode specific caret */
+@media (prefers-color-scheme: dark) {
+  select.form-control {
+    background-image: var(--select-caret-dark);
+  }
+}
+
+/* Also handle data-color-scheme */
+[data-color-scheme="dark"] select.form-control {
+  background-image: var(--select-caret-dark);
+}
+
+[data-color-scheme="light"] select.form-control {
+  background-image: var(--select-caret-light);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-outline);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+/* Card component */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card__body {
+  padding: var(--space-16);
+}
+
+.card__header,
+.card__footer {
+  padding: var(--space-16);
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+/* Status indicators - simplified with CSS variables */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.status--success {
+  background-color: rgba(
+    var(--color-success-rgb, 33, 128, 141),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-success);
+  border: 1px solid
+    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
+}
+
+.status--error {
+  background-color: rgba(
+    var(--color-error-rgb, 192, 21, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-error);
+  border: 1px solid
+    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
+}
+
+.status--warning {
+  background-color: rgba(
+    var(--color-warning-rgb, 168, 75, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-warning);
+  border: 1px solid
+    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
+}
+
+.status--info {
+  background-color: rgba(
+    var(--color-info-rgb, 98, 108, 113),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-info);
+  border: 1px solid
+    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
+}
+
+/* Container layout */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-16);
+  padding-left: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-8 {
+  gap: var(--space-8);
+}
+.gap-16 {
+  gap: var(--space-16);
+}
+
+.m-0 {
+  margin: 0;
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.mx-8 {
+  margin-left: var(--space-8);
+  margin-right: var(--space-8);
+}
+.my-8 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.p-0 {
+  padding: 0;
+}
+.py-8 {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+.px-8 {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+.py-16 {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+.px-16 {
+  padding-left: var(--space-16);
+  padding-right: var(--space-16);
+}
+
+.block {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Dark mode specifics */
+[data-color-scheme="dark"] .btn--outline {
+  border: 1px solid var(--color-border-secondary);
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
+    format('woff2');
+}
+
+/* END PERPLEXITY DESIGN SYSTEM */
+/* Custom Maruti Suzuki Styles with Fixed Readability */
+:root {
+  /* Brand Colors - Fixed for readability */
+  --maruti-primary: #01458E;
+  --maruti-white: #FFFFFF;
+  --maruti-text-dark: #1a1a1a;
+  --maruti-text-secondary: #333333;
+  --maruti-light-gray: #f8f9fa;
+  --maruti-border-gray: #e9ecef;
+  --maruti-light-blue: rgba(1, 69, 142, 0.1);
+  --maruti-shadow: 0 8px 32px rgba(1, 69, 142, 0.15);
+}
+
+/* Header */
+.header {
+  background: var(--maruti-white);
+  box-shadow: 0 2px 20px rgba(1, 69, 142, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-16) 0;
+}
+
+.nav__brand h2 {
+  color: var(--maruti-primary);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  font-size: var(--font-size-xl);
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+}
+
+.nav__menu a {
+  color: var(--maruti-text-dark);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--duration-fast);
+}
+
+.nav__menu a:hover {
+  color: var(--maruti-primary);
+}
+
+/* Hero Section - Fixed for readability */
+.hero {
+  background: var(--maruti-white);
+  color: var(--maruti-text-dark);
+  padding: 120px 0 80px;
+  margin-top: 80px;
+  border-bottom: 3px solid var(--maruti-primary);
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+.hero__text h1 {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-16);
+  line-height: 1.1;
+  color: var(--maruti-primary);
+}
+
+.hero__text p {
+  font-size: var(--font-size-lg);
+  color: var(--maruti-text-secondary);
+  line-height: 1.6;
+}
+
+/* AI Widget */
+.ai-widget {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  box-shadow: var(--maruti-shadow);
+  color: var(--maruti-text-dark);
+  border: 2px solid var(--maruti-border-gray);
+}
+
+.ai-widget h3 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-20);
+  font-size: var(--font-size-xl);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-16);
+  margin-bottom: var(--space-20);
+}
+
+.form-group label {
+  color: var(--maruti-text-dark);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-8);
+  display: block;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--maruti-border-gray);
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--maruti-primary);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--maruti-primary);
+  cursor: pointer;
+  border: none;
+}
+
+.slider-value {
+  font-weight: var(--font-weight-bold);
+  color: var(--maruti-primary);
+  min-width: 60px;
+}
+
+.form-control {
+  color: var(--maruti-text-dark);
+  background: var(--maruti-white);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-12);
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* Quick Matches */
+.quick-matches {
+  margin-top: var(--space-20);
+  padding-top: var(--space-20);
+  border-top: 1px solid var(--maruti-border-gray);
+}
+
+.quick-matches h4 {
+  color: var(--maruti-text-dark);
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+}
+
+.match-card {
+  background: var(--maruti-light-gray);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  text-align: center;
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.match-card h5 {
+  color: var(--maruti-text-dark);
+  margin: var(--space-8) 0;
+}
+
+.match-card p {
+  color: var(--maruti-text-secondary);
+  margin: var(--space-4) 0;
+}
+
+.match-card small {
+  color: var(--maruti-text-secondary);
+}
+
+.match-score {
+  background: var(--maruti-primary);
+  color: white;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  display: inline-block;
+  margin-bottom: var(--space-8);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.section-header h2 {
+  font-size: var(--font-size-3xl);
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-12);
+}
+
+.section-header p {
+  font-size: var(--font-size-lg);
+  color: var(--maruti-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* AI Portal */
+.ai-portal {
+  padding: 80px 0;
+  background: var(--maruti-light-gray);
+}
+
+.wizard-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wizard-step {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  box-shadow: var(--shadow-lg);
+  display: none;
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.wizard-step.active {
+  display: block;
+}
+
+.wizard-step h3 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-24);
+  text-align: center;
+}
+
+/* Usage Options */
+.usage-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-16);
+  margin-bottom: var(--space-32);
+}
+
+.usage-card {
+  cursor: pointer;
+  display: block;
+}
+
+.usage-card input[type="radio"] {
+  display: none;
+}
+
+.usage-card .card-content {
+  background: var(--maruti-light-gray);
+  border: 2px solid var(--maruti-border-gray);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+  transition: all var(--duration-normal);
+}
+
+.usage-card input[type="radio"]:checked + .card-content {
+  border-color: var(--maruti-primary);
+  background: var(--maruti-light-blue);
+}
+
+.usage-card .icon {
+  font-size: 48px;
+  margin-bottom: var(--space-12);
+  display: block;
+}
+
+.usage-card h4 {
+  margin-bottom: var(--space-8);
+  color: var(--maruti-primary);
+}
+
+.usage-card p {
+  color: var(--maruti-text-secondary);
+}
+
+/* Preferences Grid */
+.preferences-grid {
+  display: grid;
+  gap: var(--space-20);
+  margin-bottom: var(--space-32);
+}
+
+.pref-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.pref-item label {
+  min-width: 150px;
+  font-weight: var(--font-weight-medium);
+  color: var(--maruti-text-dark);
+}
+
+.pref-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--maruti-border-gray);
+  outline: none;
+}
+
+.pref-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--maruti-primary);
+  cursor: pointer;
+}
+
+/* Budget Form */
+.budget-form {
+  margin-bottom: var(--space-32);
+}
+
+.budget-form label {
+  color: var(--maruti-text-dark);
+}
+
+.budget-range {
+  width: 100%;
+  margin-bottom: var(--space-8);
+}
+
+.budget-display {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--maruti-primary);
+  display: block;
+  text-align: center;
+}
+
+/* Wizard Actions */
+.wizard-actions {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+}
+
+.wizard-next,
+.wizard-prev {
+  padding: var(--space-12) var(--space-24);
+}
+
+/* Results Grid */
+.results-grid {
+  display: grid;
+  gap: var(--space-20);
+}
+
+.result-card {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  border: 1px solid var(--maruti-border-gray);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-20);
+  align-items: center;
+}
+
+.result-match {
+  background: var(--maruti-primary);
+  color: white;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+.result-info h4 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-8);
+}
+
+.result-info p {
+  color: var(--maruti-text-secondary);
+}
+
+.result-specs {
+  display: flex;
+  gap: var(--space-16);
+  margin: var(--space-8) 0;
+}
+
+.result-spec {
+  font-size: var(--font-size-sm);
+  color: var(--maruti-text-secondary);
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* AR Showroom */
+.ar-showroom {
+  padding: 80px 0;
+  background: var(--maruti-white);
+}
+
+.ar-features {
+  display: grid;
+  gap: var(--space-32);
+}
+
+.ar-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+.ar-info h3 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-16);
+}
+
+.phone-mockup {
+  background: var(--maruti-text-dark);
+  border-radius: 30px;
+  padding: var(--space-20);
+  max-width: 300px;
+  margin: 0 auto;
+  box-shadow: var(--maruti-shadow);
+}
+
+.ar-interface {
+  background: var(--maruti-white);
+  border-radius: 20px;
+  padding: var(--space-16);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ar-controls {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+.ar-btn {
+  background: var(--maruti-light-blue);
+  color: var(--maruti-primary);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.ar-car {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-car p {
+  color: var(--maruti-text-dark);
+  margin-top: var(--space-8);
+}
+
+.car-3d {
+  font-size: 120px;
+  margin-bottom: var(--space-16);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-20) 0;
+}
+
+.feature-list li {
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--maruti-border-gray);
+  color: var(--maruti-text-dark);
+}
+
+.ar-actions {
+  display: flex;
+  gap: var(--space-12);
+  margin-top: var(--space-20);
+}
+
+/* VR Experiences */
+.vr-experiences {
+  background: var(--maruti-light-gray);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.vr-experiences h4 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-16);
+}
+
+.vr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.vr-card {
+  background: var(--maruti-white);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  text-align: center;
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.vr-card h5 {
+  color: var(--maruti-primary);
+  margin: var(--space-8) 0;
+}
+
+.vr-card p {
+  color: var(--maruti-text-secondary);
+}
+
+.vr-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: var(--space-12);
+}
+
+/* Vehicles Section */
+.vehicles {
+  padding: 80px 0;
+  background: var(--maruti-light-gray);
+}
+
+.category-tabs {
+  display: flex;
+  gap: var(--space-8);
+  justify-content: center;
+  margin-top: var(--space-16);
+}
+
+.tab-btn {
+  background: var(--maruti-white);
+  border: 1px solid var(--maruti-border-gray);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: all var(--duration-normal);
+  color: var(--maruti-text-dark);
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: var(--maruti-primary);
+  color: white;
+  border-color: var(--maruti-primary);
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-20);
+  margin-top: var(--space-32);
+}
+
+.vehicle-card {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-normal);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-4px);
+}
+
+.vehicle-image {
+  height: 200px;
+  background: var(--maruti-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: white;
+}
+
+.vehicle-info {
+  padding: var(--space-20);
+}
+
+.vehicle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--space-12);
+}
+
+.vehicle-name {
+  color: var(--maruti-primary);
+  margin: 0;
+}
+
+.vehicle-type {
+  color: var(--maruti-text-secondary);
+  margin: var(--space-4) 0;
+}
+
+.vehicle-category {
+  background: var(--maruti-light-blue);
+  color: var(--maruti-primary);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.vehicle-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  margin: var(--space-16) 0;
+  font-size: var(--font-size-sm);
+  color: var(--maruti-text-secondary);
+}
+
+.vehicle-price {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-16);
+}
+
+.vehicle-feature {
+  color: var(--maruti-text-secondary);
+  margin-bottom: var(--space-16);
+}
+
+.vehicle-actions {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.vehicle-actions .btn {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  padding: var(--space-8) var(--space-12);
+}
+
+/* Technology Section */
+.technology {
+  padding: 80px 0;
+  background: var(--maruti-white);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-24);
+}
+
+.tech-card {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-normal);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+}
+
+.tech-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-16);
+}
+
+.tech-card h3 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-12);
+}
+
+.tech-card p {
+  color: var(--maruti-text-secondary);
+}
+
+.tech-stats {
+  margin-top: var(--space-16);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--maruti-border-gray);
+  font-size: var(--font-size-sm);
+  color: var(--maruti-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Dashboard Preview */
+.dashboard-preview {
+  padding: 80px 0;
+  background: var(--maruti-light-gray);
+}
+
+.dashboard-mockup {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--maruti-shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 400px;
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.dashboard-sidebar {
+  background: var(--maruti-primary);
+  color: white;
+  padding: var(--space-24);
+}
+
+.dashboard-sidebar h4 {
+  margin-bottom: var(--space-16);
+}
+
+.dashboard-sidebar p {
+  opacity: 0.9;
+}
+
+.health-indicator {
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-8);
+}
+
+.health-indicator.good {
+  background: rgba(46, 213, 115, 0.3);
+}
+
+.dashboard-main {
+  padding: var(--space-24);
+}
+
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-16);
+}
+
+.widget {
+  background: var(--maruti-light-gray);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.widget h5 {
+  color: var(--maruti-primary);
+  margin-bottom: var(--space-8);
+}
+
+.widget p {
+  color: var(--maruti-text-secondary);
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 80px 0;
+  background: var(--maruti-white);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-24);
+}
+
+.testimonial-card {
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.testimonial-card p {
+  color: var(--maruti-text-dark);
+}
+
+.rating {
+  margin-bottom: var(--space-16);
+  font-size: var(--font-size-lg);
+}
+
+.testimonial-author {
+  margin-top: var(--space-16);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--maruti-border-gray);
+}
+
+.testimonial-author strong {
+  color: var(--maruti-primary);
+}
+
+.testimonial-author span {
+  color: var(--maruti-text-secondary);
+  margin-left: var(--space-8);
+}
+
+/* Footer */
+.footer {
+  background: var(--maruti-primary);
+  color: white;
+  padding: 60px 0 var(--space-24);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-32);
+  margin-bottom: var(--space-32);
+}
+
+.footer-brand h3 {
+  margin-bottom: var(--space-12);
+}
+
+.footer-brand p {
+  opacity: 0.9;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-24);
+}
+
+.link-group h4 {
+  margin-bottom: var(--space-12);
+  opacity: 0.9;
+}
+
+.link-group a {
+  display: block;
+  color: white;
+  opacity: 0.8;
+  margin-bottom: var(--space-8);
+  transition: opacity var(--duration-fast);
+}
+
+.link-group a:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: var(--space-24);
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* Chat Widget */
+.chat-widget {
+  position: fixed;
+  bottom: 100px;
+  right: var(--space-20);
+  width: 350px;
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--maruti-shadow);
+  display: none;
+  flex-direction: column;
+  max-height: 500px;
+  z-index: 1000;
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.chat-widget.active {
+  display: flex;
+}
+
+.chat-header {
+  background: var(--maruti-primary);
+  color: white;
+  padding: var(--space-16);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: var(--space-16);
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.message {
+  margin-bottom: var(--space-12);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-base);
+  max-width: 80%;
+}
+
+.message.bot {
+  background: var(--maruti-light-gray);
+  align-self: flex-start;
+  color: var(--maruti-text-dark);
+}
+
+.message.user {
+  background: var(--maruti-primary);
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.chat-input {
+  display: flex;
+  padding: var(--space-16);
+  border-top: 1px solid var(--maruti-border-gray);
+  gap: var(--space-8);
+}
+
+.chat-input input {
+  flex: 1;
+  border: 1px solid var(--maruti-border-gray);
+  border-radius: var(--radius-base);
+  padding: var(--space-8) var(--space-12);
+  color: var(--maruti-text-dark);
+}
+
+.chat-input button {
+  background: var(--maruti-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-base);
+  padding: var(--space-8) var(--space-16);
+  cursor: pointer;
+}
+
+.chat-toggle {
+  position: fixed;
+  bottom: var(--space-20);
+  right: var(--space-20);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--maruti-primary);
+  color: white;
+  border: none;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  box-shadow: var(--maruti-shadow);
+  z-index: 999;
+}
+
+/* Custom Button Overrides */
+.btn--primary {
+  background: var(--maruti-primary);
+  color: white;
+  border: none;
+}
+
+.btn--primary:hover {
+  background: #0156B3;
+}
+
+.btn--secondary {
+  background: var(--maruti-white);
+  color: var(--maruti-primary);
+  border: 1px solid var(--maruti-primary);
+}
+
+.btn--secondary:hover {
+  background: var(--maruti-primary);
+  color: white;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--maruti-text-dark);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+.btn--outline:hover {
+  background: var(--maruti-light-gray);
+}
+
+/* Search Input */
+.search-input {
+  margin-bottom: var(--space-20);
+}
+
+.no-results {
+  text-align: center;
+  padding: var(--space-32);
+  color: var(--maruti-text-secondary);
+  background: var(--maruti-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--maruti-border-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-24);
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .ar-main {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-mockup {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-sidebar {
+    padding: var(--space-16);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .chat-widget {
+    width: 300px;
+    right: var(--space-12);
+  }
+  
+  .nav__menu {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+  
+  .hero__text h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .usage-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .chat-widget {
+    width: calc(100vw - 24px);
+    right: var(--space-12);
+    left: var(--space-12);
+  }
+}
