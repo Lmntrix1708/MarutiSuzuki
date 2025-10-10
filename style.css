@@ -230,6 +230,33 @@ button.pressed{ transform: scale(.98); }
 .service-timeline--lg li{ margin: 12px 0; }
 .service-actions{ display:flex; gap: 8px; flex-wrap: wrap; }
 
+/* ---------- Service History (Profile/Services) ---------- */
+.service-item{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--color-border);
+}
+.service-item:last-child{ border-bottom: none; }
+.service-date{ font-size: 12px; color: var(--color-text-secondary); }
+.service-details{ font-weight: 600; margin: 2px 0; }
+.service-outlet{ font-size: 12px; color: var(--color-text-secondary); }
+.service-amount{ font-weight: 700; }
+
+/* ---------- Cars Tab: Tools row ---------- */
+.tools-row{ display:flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- Connect: Remote Controls & Stats ---------- */
+.controls-grid{
+  display:grid; grid-template-columns: repeat(4,1fr); gap: 8px;
+}
+.control-btn{
+  background: var(--color-bg-1); border:1px solid var(--color-border);
+  border-radius: 12px; padding: 12px 6px; cursor: pointer;
+}
+.stats-row{ display:flex; gap: 12px; }
+.stat{ background: var(--color-bg-1); border:1px solid var(--color-border); border-radius: 12px; padding: 10px; flex:1; text-align:center; }
+.stat-val{ font-size: 18px; font-weight: 800; }
+.stat-label{ font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
+
 /* ---------- Connect: Map / Trips ---------- */
 .connect-map-card, .trips-card, .geo-valet-card{
   background: var(--color-surface); border: 1px solid var(--color-border);
@@ -337,6 +364,14 @@ button.pressed{ transform: scale(.98); }
 .status-badge.ok{ background: rgba(34,197,94,.12); color: #86efac; border-color: rgba(34,197,94,.35); }
 .status-badge.warning{ background: rgba(245,158,11,.12); color: #fbbf24; border-color: rgba(245,158,11,.35); }
 
+/* ---------- Estimate Modal Inner (content inside modal) ---------- */
+.estimate-panel h3{ margin: 0 0 8px 0; }
+.est-list{ display: grid; gap: 8px; margin: 10px 0; }
+.est-item{ display:flex; justify-content:space-between; align-items:center; background:#0f1b2d; border:1px solid #1f2f4a; border-radius:10px; padding:10px; }
+.est-item.optional label{ display:flex; gap:8px; align-items:center; }
+.est-total{ text-align:right; margin: 8px 0 12px; }
+.est-actions{ display:flex; gap: 8px; justify-content:flex-end; }
+
 /* =========================================================
    SUBPAGES (in-app pages overlay)
    ========================================================= */
@@ -440,6 +475,7 @@ button.pressed{ transform: scale(.98); }
 @media (max-width: 350px){
   .quick-actions{ grid-template-columns: repeat(3,1fr); }
   .service-grid{ grid-template-columns: 1fr 1fr; }
+  .controls-grid{ grid-template-columns: repeat(3,1fr); }
 }
 
 /* Desktop wrapper feel (phone viewport centered) */
