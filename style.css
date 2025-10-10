@@ -485,3 +485,85 @@ button.pressed{ transform: scale(.98); }
     margin-left: auto; margin-right: auto;
   }
 }
+
+/* ==== Phone-look without changing HTML ==== */
+
+/* 1) Center ALL top-level blocks as one stack and add a phone frame behind */
+body{
+  display: grid;
+  place-items: start center;
+  min-height: 100vh;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* draw a phone frame behind the app stack */
+body::before{
+  content: "";
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--app-maxw) + 22px);   /* bezel width */
+  height: min(92vh, 840px);
+  transform: translate(-50%, -50%);
+  background: #0f1319;
+  border: 1px solid #1f2836;
+  border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.5), inset 0 0 0 6px #0a0e13;
+  z-index: 0;
+}
+
+/* keep every app section above the frame and clip overflow */
+.status-bar,.app-header,.tabs-nav,.tabs-container,#subpages,.chatbot-panel,.chatbot-fab{
+  position: relative;
+  z-index: 1;
+}
+
+/* subpages already use fixed+centering; ensure they never bleed outside */
+.subpage{
+  height: min(92vh, 840px);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+/* make toasts stay inside the phone "glass" */
+.toast{
+  bottom: max(16px, calc((100vh - min(92vh,840px))/2 + 16px));
+}
+
+/* 2) Respect OS light/dark (auto) */
+@media (prefers-color-scheme: light){
+  :root{
+    --color-bg:#f5f7fb;
+    --color-surface:#ffffff;
+    --color-bg-1:#f1f5ff;
+    --color-border:#dfe6f2;
+    --color-text:#0b1220;
+    --color-text-secondary:#4a5a78;
+
+    --color-primary:#0b65d8;
+    --color-secondary:#1c88ff;
+  }
+
+  body{
+    background: radial-gradient(1200px 600px at 50% -200px, #ffffff 0%, #eef3fb 40%, #e8eef9 60%, #e6ecf8 100%);
+  }
+
+  /* tweak a few dark-looking elements for light mode */
+  .quick-action,.vehicle-card,.doc-card,.control-btn,.svc-tile,.map-placeholder{
+    background: #f5f9ff;
+    border-color: #dfe6f2;
+  }
+  .chip{ background:#e8f1ff; border-color:#cfe2ff; color:#0b2c5a; }
+  .card.muted,.info-card{ background:#f2f7ff; }
+  .message-bubble{ background:#eef4ff; border-color:#d6e4ff; }
+  .message.user .message-bubble{ background:#0b65d8; border-color:#0a58bd; color:#fff; }
+  .subpage{ background: linear-gradient(180deg,#f7faff, #ffffff); }
+}
+
+/* 3) Force everything to clip inside the 414px lane on desktop/wide */
+.status-bar,.app-header,.tabs-nav,.tabs-container,#subpages{
+  margin-left: auto; margin-right: auto;
+  max-width: var(--app-maxw);
+  overflow: visible;
+}
