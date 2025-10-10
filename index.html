@@ -2,524 +2,633 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maruti Suzuki - AI-Powered Car Experience | Complete 17-Vehicle Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Maruti Suzuki SuperApp</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#01458E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__brand">
-                <h2>MARUTI SUZUKI</h2>
+    <!-- Mobile Phone Container -->
+    <div class="phone-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="time" id="currentTime">9:41</span>
             </div>
-            <div class="nav__menu">
-                <a href="#vehicles">All 17 Vehicles</a>
-                <a href="#ar-showroom">AR Experience</a>
-                <a href="#ai-recommendations">AI Recommendations</a>
-                <a href="#services">Services</a>
-                <button class="btn btn--outline btn--sm">Login</button>
+            <div class="status-center">
+                <div class="notch"></div>
             </div>
-        </nav>
-    </header>
+            <div class="status-right">
+                <span class="signal-icon">📶</span>
+                <span class="wifi-icon">📶</span>
+                <span class="battery-icon">🔋</span>
+                <span class="battery-percent">100%</span>
+            </div>
+        </div>
 
-    <!-- Hero Section with AI Widget -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero__content">
-                <div class="hero__text">
-                    <h1>Find Your Perfect Maruti with AI</h1>
-                    <p>Experience the future of car buying with our AI-powered recommendations from our complete 17-vehicle portfolio and AR/VR virtual showroom</p>
+        <!-- App Screen -->
+        <div class="app-screen">
+            <!-- App Header -->
+            <header class="app-header">
+                <div class="header-content">
+                    <div class="user-section">
+                        <div class="user-avatar">SM</div>
+                        <div class="user-info">
+                            <span class="greeting">Good afternoon</span>
+                            <span class="user-name">Soham Mehta</span>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="header-btn" id="notificationBtn">
+                            <span class="notification-dot"></span>
+                            🔔
+                        </button>
+                        <button class="header-btn" id="menuBtn">☰</button>
+                    </div>
                 </div>
-                
-                <div class="ai-widget">
-                    <h3>🤖 AI Car Finder - 17 Models Available</h3>
-                    <form class="ai-form" id="aiForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Budget Range</label>
-                                <div class="slider-container">
-                                    <input type="range" id="budgetSlider" min="3" max="25" value="8" class="slider">
-                                    <span class="slider-value" id="budgetValue">₹8L</span>
-                                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Home Tab -->
+                <section class="tab-content active" id="homeTab">
+                    <!-- Loyalty Card -->
+                    <div class="loyalty-card">
+                        <div class="card-header">
+                            <h3>Maruti Rewards</h3>
+                            <span class="tier-badge silver">Silver</span>
+                        </div>
+                        <div class="points-section">
+                            <div class="points-display">2,450</div>
+                            <div class="points-label">Points Available</div>
+                        </div>
+                        <div class="card-footer">
+                            <span>550 more points to Gold</span>
+                            <button class="redeem-btn">Redeem</button>
+                        </div>
+                    </div>
+                           <!-- Compliance Hub -->
+<div class="compliance-card">
+  <div class="compliance-row">
+    <div class="comp-item" id="comp-pucc">
+      <div class="comp-icon">🧪</div>
+      <div class="comp-text">
+        <h4>PUCC</h4>
+        <p class="comp-status">Fetching…</p>
+      </div>
+      <button class="comp-cta" onclick="openPUCC()">Renew</button>
+    </div>
+    <div class="comp-item" id="comp-insurance">
+      <div class="comp-icon">🛡️</div>
+      <div class="comp-text">
+        <h4>Insurance</h4>
+        <p class="comp-status">Fetching…</p>
+      </div>
+      <button class="comp-cta" onclick="renewInsurance()">Renew</button>
+    </div>
+    <div class="comp-item" id="comp-challan">
+      <div class="comp-icon">🧾</div>
+      <div class="comp-text">
+        <h4>Challan</h4>
+        <p class="comp-status">Fetching…</p>
+      </div>
+      <button class="comp-cta" onclick="openChallan()">View</button>
+    </div>
+  </div>
+</div>
+
+<!-- Service Live-Tracker -->
+<div class="service-live-card" id="serviceLiveCard">
+  <div class="service-live-header">
+    <h3>Service Live-Tracker</h3>
+    <span class="live-chip" id="svcLiveChip">No active job</span>
+  </div>
+  <ol class="service-timeline" id="serviceTimeline">
+    <li data-step="pickup"><span>Pickup</span></li>
+    <li data-step="inworkshop"><span>In Workshop</span></li>
+    <li data-step="estimate"><span>Estimate Approval</span></li>
+    <li data-step="qc"><span>Quality Check</span></li>
+    <li data-step="delivery"><span>Out for Delivery</span></li>
+  </ol>
+  <div class="service-actions">
+    <button class="btn btn--secondary btn--sm" onclick="mockStartService()">Simulate New Job</button>
+    <button class="btn btn--primary btn--sm" onclick="openEstimateModal()">Approve Estimate</button>
+  </div>
+</div>
+                    <!-- Quick Actions Grid -->
+                    <div class="section-header">
+                        <h2>Quick Actions</h2>
+                    </div>
+                    <div class="quick-actions-grid">
+                        <div class="action-card" onclick="handleQuickAction('bookService')">
+                            <div class="action-icon">🔧</div>
+                            <span class="action-text">Book Service</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('remoteLock')">
+                            <div class="action-icon">🔐</div>
+                            <span class="action-text">Remote Lock</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('findDealer')">
+                            <div class="action-icon">📍</div>
+                            <span class="action-text">Find Dealer</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('arShowroom')">
+                            <div class="action-icon">🥽</div>
+                            <span class="action-text">AR Showroom</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('fuelPrices')">
+                            <div class="action-icon">⛽</div>
+                            <span class="action-text">Fuel Prices</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('insurance')">
+                            <div class="action-icon">🛡️</div>
+                            <span class="action-text">Insurance</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('roadsideHelp')">
+                            <div class="action-icon">🚗</div>
+                            <span class="action-text">Roadside Help</span>
+                        </div>
+                        <div class="action-card" onclick="handleQuickAction('tradeIn')">
+                            <div class="action-icon">💰</div>
+                            <span class="action-text">Trade-in</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Reminder -->
+                    <div class="service-reminder-card">
+                        <div class="reminder-icon">🔧</div>
+                        <div class="reminder-content">
+                            <h3>Service Due</h3>
+                            <p>Your Swift VXI service is due on Oct 15, 2025</p>
+                            <span class="due-in">Due in 15 days</span>
+                        </div>
+                        <button class="book-service-btn">Book Now</button>
+                    </div>
+
+                    <!-- Your Vehicle -->
+                    <div class="section-header">
+                        <h2>Your Vehicle</h2>
+                    </div>
+                    <div class="vehicle-status-card">
+                        <div class="vehicle-info">
+                            <h3>Swift VXI 2023</h3>
+                            <p>UP 14 XX 1234</p>
+                        </div>
+                        <div class="status-indicators">
+                            <div class="status-item">
+                                <span class="status-icon">⛽</span>
+                                <span class="status-text">75%</span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label>Daily Driving (km)</label>
-                                <div class="slider-container">
-                                    <input type="range" id="dailyKmSlider" min="0" max="150" value="50" class="slider">
-                                    <span class="slider-value" id="dailyKmValue">50 km</span>
-                                </div>
+                            <div class="status-item">
+                                <span class="status-icon">🔋</span>
+                                <span class="status-text">89%</span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label>Family Size</label>
-                                <select class="form-control" id="familySize">
-                                    <option value="2">2 members</option>
-                                    <option value="4" selected>4 members</option>
-                                    <option value="6">6+ members</option>
-                                    <option value="8">8+ members</option>
-                                </select>
+                            <div class="status-item locked">
+                                <span class="status-icon">🔒</span>
+                                <span class="status-text">Locked</span>
                             </div>
                         </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn btn--primary" id="getRecommendations">
-                                Get AI Recommendations
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="section-header">
+                        <h2>Recent Activity</h2>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon service">🔧</div>
+                            <div class="activity-content">
+                                <h4>Service Completed</h4>
+                                <p>General Service • August 15</p>
+                            </div>
+                            <span class="activity-amount">₹3,500</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon fuel">⛽</div>
+                            <div class="activity-content">
+                                <h4>Fuel Savings</h4>
+                                <p>Eco driving this month</p>
+                            </div>
+                            <span class="activity-amount">₹240</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cars Tab -->
+                <section class="tab-content" id="carsTab">
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" placeholder="Search cars..." class="search-input" id="carSearch">
+                        </div>
+                        <button class="filter-btn" id="filterBtn">
+                            <span>⚙️</span>
+                        </button>
+                    </div>
+
+                    <!-- Category Chips -->
+                    <div class="category-chips">
+                        <button class="chip active" data-category="all">All</button>
+                        <button class="chip" data-category="Arena">Arena</button>
+                        <button class="chip" data-category="Nexa">Nexa</button>
+                        <button class="chip" data-category="electric">Electric</button>
+                    </div>
+
+                    <!-- Vehicle Cards -->
+                    <div class="vehicles-container" id="vehiclesContainer">
+                        <!-- Vehicle cards will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Connect Tab -->
+                <section class="tab-content" id="connectTab">
+                    <!-- Vehicle Control Header -->
+                    <div class="control-header">
+                        <h2>Vehicle Control</h2>
+                        <div class="connection-status online">
+                            <div class="status-dot"></div>
+                            <span>Online</span>
+                        </div>
+                    </div>
+
+                    <!-- Remote Controls -->
+                    <div class="remote-controls">
+                        <div class="control-row">
+                            <button class="control-btn" onclick="toggleLock()">
+                                <div class="control-icon">🔐</div>
+                                <span class="control-text">Lock/Unlock</span>
                             </button>
-                            <button type="button" class="btn btn--secondary" id="tryAR">
-                                Try AR Experience
+                            <button class="control-btn" onclick="startEngine()">
+                                <div class="control-icon">🚗</div>
+                                <span class="control-text">Start Engine</span>
                             </button>
                         </div>
-                    </form>
-                    
-                    <div class="quick-matches" id="quickMatches" style="display: none;">
-                        <h4>Top Matches for You:</h4>
-                        <div class="matches-grid" id="matchesGrid"></div>
+                        <div class="control-row">
+                            <button class="control-btn" onclick="toggleAC()">
+                                <div class="control-icon">❄️</div>
+                                <span class="control-text">Climate</span>
+                            </button>
+                            <button class="control-btn" onclick="locateVehicle()">
+                                <div class="control-icon">📍</div>
+                                <span class="control-text">Find My Car</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- AI Recommendation Portal -->
-    <section class="ai-portal" id="ai-recommendations">
-        <div class="container">
-            <div class="section-header">
-                <h2>AI-Powered Car Recommendations</h2>
-                <p>Our advanced AI analyzes your lifestyle to find your perfect match from our complete 17-vehicle portfolio</p>
-            </div>
-            
-            <div class="wizard-container" id="wizardContainer">
-                <!-- Step 1: Usage Analysis -->
-                <div class="wizard-step active" id="step1">
-                    <h3>Step 1: Tell us about your driving</h3>
-                    <div class="usage-options">
-                        <label class="usage-card">
-                            <input type="radio" name="drivingType" value="city">
-                            <div class="card-content">
-                                <span class="icon">🏙️</span>
-                                <h4>City Driving</h4>
-                                <p>Mostly urban, short distances, traffic conditions</p>
-                            </div>
-                        </label>
-                        
-                        <label class="usage-card">
-                            <input type="radio" name="drivingType" value="highway" checked>
-                            <div class="card-content">
-                                <span class="icon">🛣️</span>
-                                <h4>Mixed Driving</h4>
-                                <p>City and highway combined, versatile usage</p>
-                            </div>
-                        </label>
-                        
-                        <label class="usage-card">
-                            <input type="radio" name="drivingType" value="long">
-                            <div class="card-content">
-                                <span class="icon">🚗</span>
-                                <h4>Long Distance</h4>
-                                <p>Frequent highway trips, touring, comfort priority</p>
-                            </div>
-                        </label>
+                    <!-- Trip Statistics -->
+                    <div class="section-header">
+                        <h2>This Month</h2>
                     </div>
-                    
-                    <button class="btn btn--primary wizard-next">Next Step</button>
-                </div>
-                
-                <!-- Step 2: Preferences -->
-                <div class="wizard-step" id="step2">
-                    <h3>Step 2: What matters most to you?</h3>
-                    <div class="preferences-grid">
-                        <div class="pref-item">
-                            <label>Fuel Efficiency</label>
-                            <input type="range" min="1" max="5" value="4" class="pref-slider" data-pref="efficiency">
+                    <div class="trip-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">1,250</div>
+                            <div class="stat-label">km driven</div>
                         </div>
-                        <div class="pref-item">
-                            <label>Safety Features</label>
-                            <input type="range" min="1" max="5" value="5" class="pref-slider" data-pref="safety">
+                        <div class="stat-card">
+                            <div class="stat-value">85</div>
+                            <div class="stat-label">Driving Score</div>
                         </div>
-                        <div class="pref-item">
-                            <label>Technology & Features</label>
-                            <input type="range" min="1" max="5" value="3" class="pref-slider" data-pref="tech">
-                        </div>
-                        <div class="pref-item">
-                            <label>Space & Comfort</label>
-                            <input type="range" min="1" max="5" value="4" class="pref-slider" data-pref="space">
-                        </div>
-                        <div class="pref-item">
-                            <label>Resale Value</label>
-                            <input type="range" min="1" max="5" value="3" class="pref-slider" data-pref="resale">
-                        </div>
-                        <div class="pref-item">
-                            <label>Brand Reliability</label>
-                            <input type="range" min="1" max="5" value="5" class="pref-slider" data-pref="brand">
+                        <div class="stat-card">
+                            <div class="stat-value">₹3,200</div>
+                            <div class="stat-label">Fuel Cost</div>
                         </div>
                     </div>
-                    
-                    <div class="wizard-actions">
-                        <button class="btn btn--outline wizard-prev">Previous</button>
-                        <button class="btn btn--primary wizard-next">Next Step</button>
-                    </div>
-                </div>
-                
-                <!-- Step 3: Budget & Financing -->
-                <div class="wizard-step" id="step3">
-                    <h3>Step 3: Budget & Financing Preferences</h3>
-                    <div class="budget-form">
-                        <div class="form-group">
-                            <label>Total Budget (₹3.50L - ₹24.97L)</label>
-                            <input type="range" min="3" max="25" value="10" class="form-control budget-range" id="totalBudget">
-                            <span class="budget-display" id="totalBudgetDisplay">₹10 Lakh</span>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Preferred EMI (₹)</label>
-                                <input type="number" class="form-control" placeholder="15,000" min="5000" max="50000">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Down Payment (%)</label>
-                                <select class="form-control">
-                                    <option value="15">15% (Minimum)</option>
-                                    <option value="20" selected>20% (Standard)</option>
-                                    <option value="30">30% (Lower EMI)</option>
-                                    <option value="40">40% (Best Rate)</option>
-                                    <option value="50">50% (Premium)</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Fuel Preference</label>
-                                <select class="form-control">
-                                    <option value="petrol">Petrol Only</option>
-                                    <option value="cng" selected>Petrol + CNG</option>
-                                    <option value="hybrid">Hybrid (Available)</option>
-                                    <option value="any">Any Fuel Type</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Transmission</label>
-                                <select class="form-control">
-                                    <option value="manual">Manual</option>
-                                    <option value="automatic">Automatic (AMT/AT/CVT)</option>
-                                    <option value="any" selected>Any Transmission</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="wizard-actions">
-                        <button class="btn btn--outline wizard-prev">Previous</button>
-                        <button class="btn btn--primary" id="generateRecommendations">Get My AI Recommendations</button>
-                    </div>
-                </div>
-                
-                <!-- Results -->
-                <div class="wizard-step" id="results" style="display: none;">
-                    <h3>Your AI-Matched Vehicles</h3>
-                    <p style="text-align: center; color: var(--maruti-text-secondary); margin-bottom: var(--space-24);">
-                        Based on your preferences, here are your top matches from our complete 17-vehicle portfolio
-                    </p>
-                    <div class="results-grid" id="resultsGrid"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- AR/VR Virtual Showroom -->
-    <section class="ar-showroom" id="ar-showroom">
-        <div class="container">
-            <div class="section-header">
-                <h2>AR/VR Virtual Showroom</h2>
-                <p>Experience any of our 17 Maruti models without visiting a dealership</p>
-            </div>
-            
-            <div class="ar-features">
-                <div class="ar-main">
-                    <div class="ar-preview">
-                        <div class="phone-mockup">
-                            <div class="ar-interface">
-                                <div class="ar-controls">
-                                    <span class="ar-btn">📱 Place Car</span>
-                                    <span class="ar-btn">🎨 Change Color</span>
-                                    <span class="ar-btn">🚗 Walk Around</span>
+                    <!-- SmartPlay Remote -->
+                    <div class="smartplay-section">
+                        <h3>SmartPlay Remote</h3>
+                        <div class="media-player">
+                            <div class="now-playing">
+                                <span class="track-info">🎵 Radio Mirchi FM</span>
+                            </div>
+                            <div class="media-controls">
+                                <button class="media-btn">⏮️</button>
+                                <button class="media-btn play-btn" onclick="togglePlayback()">▶️</button>
+                                <button class="media-btn">⏭️</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+<!-- Live Map & Trips -->
+<div class="connect-map-card">
+  <div class="map-header">
+    <h3>Live Location</h3>
+    <div class="map-mini-status"><span class="dot online"></span> Live</div>
+  </div>
+  <div class="map-placeholder" id="liveMap">🗺️ Map preview (mock)</div>
+  <div class="map-actions">
+    <button class="btn btn--secondary btn--sm" onclick="shareLiveLocation()">Share 30 min</button>
+    <button class="btn btn--secondary btn--sm" onclick="refreshLiveMap()">Refresh</button>
+  </div>
+</div>
+
+<div class="trips-card">
+  <div class="trips-header">
+    <h3>Trips</h3>
+    <button class="btn btn--outline btn--sm" onclick="exportTrips()">Export CSV</button>
+  </div>
+  <div id="tripsList"></div>
+</div>
+
+<!-- Geofence & Valet -->
+<div class="geo-valet-card">
+  <div class="gv-row">
+    <div class="gv-item">
+      <div class="gv-icon">🛡️</div>
+      <div class="gv-text">
+        <h4>Geofence</h4>
+        <p id="geofenceStatus">None</p>
+      </div>
+      <button class="btn btn--primary btn--sm" onclick="createGeofence()">Create</button>
+    </div>
+    <div class="gv-item">
+      <div class="gv-icon">🅿️</div>
+      <div class="gv-text">
+        <h4>Valet Mode</h4>
+        <p id="valetStatus">Off</p>
+      </div>
+      <button class="btn btn--secondary btn--sm" onclick="toggleValet()">Toggle</button>
+    </div>
+  </div>
+</div>
+                <!-- Service Cost Estimator -->
+<div class="estimator-card">
+  <h3>Service Cost Estimator</h3>
+  <div class="estimator-grid">
+    <label class="form-group">
+      <span class="form-label">Model</span>
+      <select class="form-control" id="estModel">
+        <option>Swift VXI</option>
+        <option>Alto K10</option>
+        <option>Brezza</option>
+        <option>Grand Vitara</option>
+      </select>
+    </label>
+    <label class="form-group">
+      <span class="form-label">Odo (km)</span>
+      <input type="number" class="form-control" id="estKm" placeholder="15420" value="15420">
+    </label>
+    <label class="form-group">
+      <span class="form-label">City</span>
+      <select class="form-control" id="estCity">
+        <option>Ghaziabad</option>
+        <option>Delhi</option>
+        <option>Mumbai</option>
+        <option>Bengaluru</option>
+      </select>
+    </label>
+  </div>
+  <button class="btn btn--primary btn--full-width" onclick="calcEstimate()">Get Estimate</button>
+  <div class="estimator-result" id="estResult"></div>
+</div>
+                <!-- Services Tab -->
+                <section class="tab-content" id="servicesTab">
+                    <!-- Service Categories -->
+                    <div class="service-categories">
+                        <div class="service-category" onclick="bookService()">
+                            <div class="category-icon">🔧</div>
+                            <div class="category-content">
+                                <h3>Book Service</h3>
+                                <p>Schedule maintenance</p>
+                            </div>
+                            <span class="arrow">›</span>
+                        </div>
+                        <div class="service-category" onclick="viewParts()">
+                            <div class="category-icon">🔩</div>
+                            <div class="category-content">
+                                <h3>Genuine Parts</h3>
+                                <p>Order spare parts</p>
+                            </div>
+                            <span class="arrow">›</span>
+                        </div>
+                        <div class="service-category" onclick="renewInsurance()">
+                            <div class="category-icon">🛡️</div>
+                            <div class="category-content">
+                                <h3>Insurance</h3>
+                                <p>Renew policy</p>
+                            </div>
+                            <span class="arrow">›</span>
+                        </div>
+                        <div class="service-category" onclick="roadsideAssistance()">
+                            <div class="category-icon">🚨</div>
+                            <div class="category-content">
+                                <h3>Roadside Help</h3>
+                                <p>Emergency assistance</p>
+                            </div>
+                            <span class="arrow">›</span>
+                        </div>
+                    </div>
+
+                    <!-- Service History -->
+                    <div class="section-header">
+                        <h2>Service History</h2>
+                    </div>
+                    <div class="service-history">
+                        <div class="history-item">
+                            <div class="history-date">
+                                <span class="date">15</span>
+                                <span class="month">Aug</span>
+                            </div>
+                            <div class="history-content">
+                                <h4>General Service</h4>
+                                <p>Oil change, filter replacement</p>
+                                <span class="service-center">Arena Service Center</span>
+                            </div>
+                            <span class="history-amount">₹3,500</span>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-date">
+                                <span class="date">20</span>
+                                <span class="month">May</span>
+                            </div>
+                            <div class="history-content">
+                                <h4>Paid Service</h4>
+                                <p>15,000 km service</p>
+                                <span class="service-center">Arena Service Center</span>
+                            </div>
+                            <span class="history-amount">₹5,200</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Tab -->
+                <section class="tab-content" id="profileTab">
+                    <!-- User Profile Header -->
+                    <div class="profile-header">
+                        <div class="profile-avatar large">SM</div>
+                        <h2>Soham Mehta</h2>
+                        <p>soham.mehta2k@gmail.com</p>
+                        <p class="location">📍 Ghaziabad</p>
+                    </div>
+
+                    <!-- Profile Stats -->
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">2,450</div>
+                            <div class="stat-text">Points</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Silver</div>
+                            <div class="stat-text">Tier</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1</div>
+                            <div class="stat-text">Vehicles</div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Menu -->
+                    <div class="profile-menu">
+                        <div class="menu-section">
+                            <div class="menu-item" onclick="viewDocuments()">
+                                <div class="menu-icon">📄</div>
+                                <div class="menu-content">
+                                    <span class="menu-title">Documents</span>
+                                    <span class="menu-subtitle">License, RC, Insurance</span>
                                 </div>
-                                <div class="ar-car">
-                                    <div class="car-3d">🚙</div>
-                                    <p>Swift in your driveway</p>
+                                <span class="menu-arrow">›</span>
+                            </div>
+                            <div class="menu-item" onclick="viewRewards()">
+                                <div class="menu-icon">🏆</div>
+                                <div class="menu-content">
+                                    <span class="menu-title">Rewards & Offers</span>
+                                    <span class="menu-subtitle">Redeem points, view offers</span>
                                 </div>
+                                <span class="menu-arrow">›</span>
+                            </div>
+                            <div class="menu-item" onclick="viewSettings()">
+                                <div class="menu-icon">⚙️</div>
+                                <div class="menu-content">
+                                    <span class="menu-title">Settings</span>
+                                    <span class="menu-subtitle">Preferences, notifications</span>
+                                </div>
+                                <span class="menu-arrow">›</span>
+                            </div>
+                            <div class="menu-item" onclick="getSupport()">
+                                <div class="menu-icon">❓</div>
+                                <div class="menu-content">
+                                    <span class="menu-title">Help & Support</span>
+                                    <span class="menu-subtitle">FAQs, contact us</span>
+                                </div>
+                                <span class="menu-arrow">›</span>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Document Vault -->
+<div class="docvault-card">
+  <div class="docvault-header">
+    <h3>Document Vault</h3>
+    <button class="btn btn--outline btn--sm" onclick="syncDigiLocker()">Sync DigiLocker</button>
+  </div>
+  <div class="docvault-grid" id="docGrid">
+    <!-- Filled by JS -->
+  </div>
+</div>
                     
-                    <div class="ar-info">
-                        <h3>Revolutionary AR/VR Experience</h3>
-                        <ul class="feature-list">
-                            <li>📱 Mobile AR - Place any of our 17 cars in your space</li>
-                            <li>🎮 VR Showroom - Complete 360° interior tours</li>
-                            <li>🚗 Virtual Test Drive - Experience handling virtually</li>
-                            <li>⚖️ Compare Models - Side-by-side AR comparison</li>
-                            <li>🎨 Live Customization - See colors & variants instantly</li>
-                            <li>🏠 Home Preview - Visualize in your garage/parking</li>
-                            <li>👥 Family Experience - Share AR view with family</li>
-                        </ul>
-                        
-                        <div class="ar-actions">
-                            <button class="btn btn--primary">Try AR Experience</button>
-                            <button class="btn btn--secondary">Enter VR Showroom</button>
-                        </div>
+                    <!-- App Version -->
+                    <div class="app-version">
+                        <p>Maruti Suzuki SuperApp</p>
+                        <p>Version 2.4.1</p>
                     </div>
-                </div>
-                
-                <div class="vr-experiences">
-                    <h4>Available Virtual Experiences:</h4>
-                    <div class="vr-grid">
-                        <div class="vr-card">
-                            <span class="vr-icon">👓</span>
-                            <h5>Complete Interior Tour</h5>
-                            <p>Explore every detail of the cabin across all 17 models</p>
-                        </div>
-                        
-                        <div class="vr-card">
-                            <span class="vr-icon">🎮</span>
-                            <h5>Virtual Test Drive</h5>
-                            <p>Experience handling & performance simulation</p>
-                        </div>
-                        
-                        <div class="vr-card">
-                            <span class="vr-icon">🔬</span>
-                            <h5>Feature Comparison Lab</h5>
-                            <p>Compare multiple models side-by-side in VR</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </section>
+            </main>
 
-    <!-- Enhanced Vehicle Showcase - All 17 Models -->
-    <section class="vehicles" id="vehicles">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Complete 17-Vehicle Range</h2>
-                <p>From ₹3.50 Lakh to ₹24.97 Lakh - Arena & Nexa portfolios</p>
-                <div class="category-tabs">
-                    <button class="tab-btn active" data-category="all">All 17 Vehicles</button>
-                    <button class="tab-btn" data-category="Arena">Arena (9 Models)</button>
-                    <button class="tab-btn" data-category="Nexa">Nexa (8 Models)</button>
-                </div>
-            </div>
-            
-            <div class="vehicles-grid" id="vehiclesGrid"></div>
-        </div>
-    </section>
+            <!-- Bottom Tab Bar -->
+            <nav class="bottom-tab-bar">
+                <button class="tab-btn active" data-tab="homeTab">
+                    <div class="tab-icon">🏠</div>
+                    <span class="tab-label">Home</span>
+                </button>
+                <button class="tab-btn" data-tab="carsTab">
+                    <div class="tab-icon">🚗</div>
+                    <span class="tab-label">Cars</span>
+                </button>
+                <button class="tab-btn" data-tab="connectTab">
+                    <div class="tab-icon">📡</div>
+                    <span class="tab-label">Connect</span>
+                </button>
+                <button class="tab-btn" data-tab="servicesTab">
+                    <div class="tab-icon">🔧</div>
+                    <span class="tab-label">Services</span>
+                </button>
+                <button class="tab-btn" data-tab="profileTab">
+                    <div class="tab-icon">👤</div>
+                    <span class="tab-label">Profile</span>
+                </button>
+            </nav>
 
-    <!-- Technology Highlights -->
-    <section class="technology">
-        <div class="container">
-            <div class="section-header">
-                <h2>Leading Digital Innovation</h2>
-                <p>Pioneering the future of automotive technology across our 17-vehicle portfolio</p>
-            </div>
-            
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">🤖</div>
-                    <h3>AI Recommendation Engine</h3>
-                    <p>Advanced machine learning analyzes 50+ parameters across all 17 models to find your perfect match with 95% accuracy</p>
-                    <div class="tech-stats">
-                        <span>400,000+ recommendations generated</span>
-                    </div>
-                </div>
-                
-                <div class="tech-card">
-                    <div class="tech-icon">🥽</div>
-                    <h3>AR/VR Capabilities</h3>
-                    <p>Industry-first mobile AR and VR showroom experiences available for all 17 models nationwide</p>
-                    <div class="tech-stats">
-                        <span>10,000+ virtual test drives completed</span>
-                    </div>
-                </div>
-                
-                <div class="tech-card">
-                    <div class="tech-icon">📱</div>
-                    <h3>Suzuki Connect</h3>
-                    <p>40+ connected car services with predictive maintenance and real-time vehicle monitoring across our range</p>
-                    <div class="tech-stats">
-                        <span>24/7 AI assistant available</span>
-                    </div>
-                </div>
-                
-                <div class="tech-card">
-                    <div class="tech-icon">📊</div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Smart insights for ownership costs, maintenance schedules, and upgrade recommendations for all models</p>
-                    <div class="tech-stats">
-                        <span>95% customer satisfaction</span>
-                    </div>
-                </div>
-            </div>
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
         </div>
-    </section>
 
-    <!-- Smart Customer Dashboard Preview -->
-    <section class="dashboard-preview">
-        <div class="container">
-            <div class="section-header">
-                <h2>Your Smart Ownership Journey</h2>
-                <p>Personalized insights and predictive recommendations for your Maruti</p>
-            </div>
-            
-            <div class="dashboard-mockup">
-                <div class="dashboard-sidebar">
-                    <h4>Your Swift</h4>
-                    <div class="car-health">
-                        <div class="health-indicator good">98% Health Score</div>
-                        <p>Next service in 15 days</p>
-                        <p>1,250 km driven this month</p>
-                    </div>
-                </div>
-                
-                <div class="dashboard-main">
-                    <div class="dashboard-widgets">
-                        <div class="widget">
-                            <h5>This Month Stats</h5>
-                            <p>1,250 km driven</p>
-                            <p>₹3,200 fuel cost</p>
-                            <p>25.2 kmpl average</p>
-                        </div>
-                        
-                        <div class="widget">
-                            <h5>AI Insights</h5>
-                            <p>"Consider Grand Vitara hybrid for 40% fuel savings on your usage pattern"</p>
-                        </div>
-                        
-                        <div class="widget">
-                            <h5>Predictive Alerts</h5>
-                            <p>"Brake pad replacement due in 2 months based on driving pattern"</p>
-                        </div>
-                        
-                        <div class="widget">
-                            <h5>Upgrade Recommendation</h5>
-                            <p>"Brezza CNG matches your family needs - 50% lower running cost"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Customer Success Stories</h2>
-                <p>Real experiences from our satisfied customers across India</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p>"The AI recommendation perfectly matched me with the Grand Vitara hybrid for my 60km daily commute. Saving ₹2000 monthly on fuel!"</p>
-                    <div class="testimonial-author">
-                        <strong>Priya Sharma</strong>
-                        <span>Delhi - Grand Vitara Owner</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p>"AR experience was incredible! I could see the Brezza in my garage and show my family before visiting showroom. Revolutionary technology!"</p>
-                    <div class="testimonial-author">
-                        <strong>Rajesh Kumar</strong>
-                        <span>Mumbai - Brezza Owner</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p>"AI suggested Ertiga CNG for our 7-member family. Best decision - spacious, economical, and perfect for our needs. Maruti rocks!"</p>
-                    <div class="testimonial-author">
-                        <strong>Anita Patel</strong>
-                        <span>Ahmedabad - Ertiga Owner</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>MARUTI SUZUKI</h3>
-                    <p>Leading India's automotive future with AI innovation across our complete 17-vehicle portfolio</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Complete Range</h4>
-                        <a href="#vehicles">All 17 Vehicles</a>
-                        <a href="#arena">Arena (9 Models)</a>
-                        <a href="#nexa">Nexa (8 Models)</a>
-                        <a href="#commercial">Commercial</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4>Digital Services</h4>
-                        <a href="#ai">AI Recommendations</a>
-                        <a href="#ar">AR/VR Experience</a>
-                        <a href="#connect">Suzuki Connect</a>
-                        <a href="#app">Mobile App</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4>Customer Services</h4>
-                        <a href="#service">Book Service</a>
-                        <a href="#parts">Genuine Parts</a>
-                        <a href="#insurance">Insurance</a>
-                        <a href="#finance">Finance</a>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4>Support</h4>
-                        <a href="#dealers">Find Dealers</a>
-                        <a href="#test-drive">Book Test Drive</a>
-                        <a href="#contact">Contact Us</a>
-                        <a href="#help">Help Center</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Maruti Suzuki India Limited. All rights reserved. | Complete 17-Vehicle Portfolio Available</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- AI Assistant Chat Widget -->
-    <div class="chat-widget" id="chatWidget">
-        <div class="chat-header">
-            <span>🤖 AI Assistant - 17 Models Expert</span>
-            <button class="chat-close" id="chatClose">×</button>
-        </div>
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-                <p>Hi! I'm your AI assistant with complete knowledge of all 17 Maruti models. How can I help you find your perfect car today?</p>
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Ask about any of our 17 models..." id="chatInput">
-            <button id="chatSend">Send</button>
+        <!-- Floating Chatbot Icon -->
+        <div class="chatbot-float" id="chatbotFloat" onclick="openChatbot()">
+            <div class="chatbot-icon">🤖</div>
+            <div class="notification-dot" id="chatNotificationDot"></div>
         </div>
     </div>
-    
-    <button class="chat-toggle" id="chatToggle">💬</button>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal hidden" id="chatbotModal">
+        <div class="chatbot-overlay" onclick="closeChatbot()"></div>
+        <div class="chatbot-container">
+            <!-- Chatbot Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-header-content">
+                    <div class="chatbot-title">
+                        <span class="chatbot-avatar">🤖</span>
+                        <div class="chatbot-info">
+                            <h3>Hey Maruti AI Assistant</h3>
+                            <span class="chatbot-status">Online</span>
+                        </div>
+                    </div>
+                    <button class="chatbot-close" onclick="closeChatbot()">×</button>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be populated by JavaScript -->
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator hidden" id="typingIndicator">
+                <div class="typing-avatar">🤖</div>
+                <div class="typing-bubble">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Replies -->
+            <div class="quick-replies" id="quickReplies">
+                <!-- Quick reply buttons will be populated by JavaScript -->
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." maxlength="500">
+                    <button class="send-button" id="sendButton" onclick="sendMessage()">
+                        <span class="send-icon">➤</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Modals and Overlays -->
+    <div class="modal-overlay" id="modalOverlay"></div>
 
     <script src="app.js"></script>
 </body>
