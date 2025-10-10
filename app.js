@@ -3,7 +3,7 @@
    Full JS: navigation, pages, widgets, and mock logic
    ========================================================= */
 
-// ------- Seed Data (same user/vehicles, extended where helpful)
+// ------- Seed Data
 const appData = {
   user: {
     name: "Soham Mehta",
@@ -197,7 +197,7 @@ function showToast(message, type = "info") {
   }, 2400);
 }
 
-// ------- Quick Actions
+// ------- Quick Actions (fixed onclick generation)
 function renderQuickActions() {
   if (!elements.quickActions) return;
   const actions = [
@@ -210,11 +210,14 @@ function renderQuickActions() {
     { id: "rsa", label: "Roadside Help", icon: "🚨", page: "rsaPage" },
     { id: "tradeIn", label: "Trade-in", icon: "♻️", page: "trueValueSellPage" }
   ];
-  elements.quickActions.innerHTML = actions.map(a => `
-    <button class="quick-action" onclick="${a.page ? `openPage('${a.page}')` : a.action ? `${a.action}()` : "showToast('Coming soon','info)"}"}">
-      <span class="qa-icon">${a.icon}</span><span>${a.label}</span>
-    </button>
-  `).join("");
+  elements.quickActions.innerHTML = actions.map(a => {
+    const onClick = a.page ? `openPage('${a.page}')` : a.action ? `${a.action}()` : `showToast('Coming soon','info')`;
+    return `
+      <button class="quick-action" onclick="${onClick}">
+        <span class="qa-icon">${a.icon}</span><span>${a.label}</span>
+      </button>
+    `;
+  }).join("");
 }
 
 // ------- Vehicle Card
@@ -266,11 +269,13 @@ function renderVehicles() {
 function openPage(id) {
   // Close active subpage if any
   const active = document.querySelector(".subpage.active");
-  if (active) {
-    active.classList.remove("active");
-  }
+  if (active) active.classList.remove("active");
+
   const page = document.getElementById(id);
-  if (!page) return;
+  if (!page) {
+    showToast("Coming soon", "info");
+    return;
+  }
 
   page.classList.add("active");
   page.setAttribute("aria-hidden", "false");
@@ -825,6 +830,7 @@ window.approveEstimate = approveEstimate;
 window.refreshLiveMap = refreshLiveMap;
 window.shareLiveLocation = shareLiveLocation;
 window.exportTrips = exportTrips;
+window.openTrip = openTrip;
 window.createGeofence = createGeofence;
 window.toggleValet = toggleValet;
 
