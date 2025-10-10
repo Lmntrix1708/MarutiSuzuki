@@ -42,7 +42,7 @@ button { font: inherit; }
   --space-4: 20px;
 }
 
-/* ---------- Base ---------- */
+/* ---------- Base + Phone Frame ---------- */
 body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji";
   color: var(--color-text);
@@ -57,9 +57,9 @@ body::before{
   content: "";
   position: fixed;
   left: 50%; top: 50%;
-  width: calc(var(--app-maxw) + 22px);    /* bezel */
+  width: calc(var(--app-maxw) + 22px); /* bezel */
   height: min(92vh, 840px);
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background: #0f1319;
   border: 1px solid #1f2836;
   border-radius: 32px;
@@ -75,7 +75,8 @@ body::before{
   padding: 0 var(--space-3);
   background: rgba(0,0,0,.25);
   border-bottom: 1px solid var(--color-border);
-  position: sticky; top: 0; z-index: 100; backdrop-filter: blur(6px);
+  /* was sticky – let it scroll naturally */
+  position: relative; top: auto; z-index: 100;
 }
 .sb-left, .sb-right{ display:flex; gap: 6px; }
 
@@ -85,7 +86,8 @@ body::before{
   padding: var(--space-3);
   background: rgba(0,0,0,.25);
   border-bottom: 1px solid var(--color-border);
-  position: sticky; top: 24px; z-index: 99; backdrop-filter: blur(6px);
+  /* was sticky – let it scroll naturally */
+  position: relative; top: auto; z-index: 99;
 }
 .brand{ font-weight: 700; letter-spacing: .2px; }
 .icon-btn{
@@ -95,13 +97,13 @@ body::before{
 }
 
 /* ---------- Tabs ---------- */
-.tabs-container{ padding-bottom: 72px; }
+.tabs-container{ padding-bottom: 120px; } /* give room for FAB */
 .tabs-nav{
   display:grid; grid-template-columns: repeat(5,1fr);
   gap: 6px; padding: 8px var(--space-3);
-  position: sticky; top: 72px; z-index: 98;
-  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
-  backdrop-filter: blur(4px);
+  /* was sticky – let it scroll naturally */
+  position: relative; top: auto; z-index: 98;
+  background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,0));
 }
 .tab-btn{
   background: var(--color-surface); color: var(--color-text-secondary);
@@ -343,7 +345,7 @@ button.pressed{ transform: scale(.98); }
 .est-actions{ display:flex; gap:8px; justify-content:flex-end; }
 
 /* =========================================================
-   SUBPAGES (in-app pages overlay)
+   SUBPAGES (overlay pages)
    ========================================================= */
 #subpages{ width:100%; max-width: var(--app-maxw); }
 .subpage{
@@ -369,18 +371,32 @@ button.pressed{ transform: scale(.98); }
 .subpage-body{ padding:12px var(--space-3) 32px; }
 
 /* =========================================================
-   Chatbot
+   Overlay mode (hide base chrome & FAB when a subpage is open)
+   ========================================================= */
+body.overlay-open .status-bar,
+body.overlay-open .app-header,
+body.overlay-open .tabs-nav{ visibility: hidden; }
+body.overlay-open .chatbot-fab,
+body.overlay-open .chatbot-panel{ display: none !important; }
+body.overlay-open{ overflow: hidden; }
+
+/* =========================================================
+   Chatbot (anchored inside the phone frame)
    ========================================================= */
 .chatbot-fab{
-  position: fixed; right: calc((100vw - var(--app-maxw))/2 + 12px);
-  bottom: 16px; z-index:130;
+  position: fixed;
+  right: calc((100vw - var(--app-maxw))/2 + 12px);
+  bottom: calc((100vh - min(92vh,840px))/2 + 16px);
+  z-index:130;
   width:52px; height:52px; border-radius:26px;
   background: var(--color-primary); color:#fff; border:none; box-shadow: var(--shadow-2);
   cursor:pointer;
 }
 .chatbot-panel{
-  position: fixed; right: calc((100vw - var(--app-maxw))/2 + 16px);
-  bottom: 80px; width: min(92vw, 360px); max-height: 70vh; display:none;
+  position: fixed;
+  right: calc((100vw - var(--app-maxw))/2 + 16px);
+  bottom: calc((100vh - min(92vh,840px))/2 + 80px);
+  width: min(92vw, 360px); max-height: 70vh; display:none;
   background: var(--color-surface); border:1px solid var(--color-border); border-radius:16px;
   box-shadow: var(--shadow-2); z-index:140;
 }
@@ -408,7 +424,7 @@ button.pressed{ transform: scale(.98); }
 .chat-dot{ position:absolute; right:10px; bottom:10px; width:10px; height:10px; background:#22c55e; border-radius:5px; box-shadow:0 0 0 2px #0b65d8; }
 
 /* =========================================================
-   Toasts
+   Toasts (anchored inside the phone frame)
    ========================================================= */
 .toast{
   position: fixed; left:50%; transform: translateX(-50%) translateY(12px);
@@ -467,7 +483,7 @@ button.pressed{ transform: scale(.98); }
   }
 
   .status-bar,.app-header{ background: rgba(255,255,255,.85); border-bottom-color:#e6edf8; }
-  .tabs-nav{ background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,0)); }
+  .tabs-nav{ background: transparent; }
 
   .quick-action,.vehicle-card,.doc-card,.control-btn,.svc-tile,.map-placeholder{
     background:#f7faff; border-color:#e6edf8;
