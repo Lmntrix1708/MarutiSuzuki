@@ -95,11 +95,11 @@ body::before{
 }
 
 /* ---------- Tabs ---------- */
-.tabs-container{ padding-bottom: 72px; }
+.tabs-container{ padding-bottom: 84px;}
 .tabs-nav{
   display:grid; grid-template-columns: repeat(5,1fr);
   gap: 6px; padding: 8px var(--space-3);
-  position: sticky; top: 72px; z-index: 98;
+  position: sticky; top: 90px; z-index: 98;
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
   backdrop-filter: blur(4px);
 }
@@ -130,13 +130,13 @@ body::before{
 /* ---------- Rewards summary ---------- */
 .rewards-card{
   display:flex; gap:12px; align-items:center; justify-content:space-between;
-  background: linear-gradient(135deg, #0f2a52, #111827);
-  border: 1px solid #1f2a3d; border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #c3dee6, #8dd3e8);
+  border: none; border-radius: var(--radius-lg);
   padding: 12px var(--space-3); margin: var(--space-3) 0; box-shadow: inset 0 1px 0 rgba(255,255,255,.04), var(--shadow-1);
 }
-.rewards-left .tier{ font-size:14px; color:#b6d9ff; }
+.rewards-left .tier{ font-size:14px; color:#5CAAFF; }
 .rewards-left .points{ font-size:18px; font-weight:700; }
-.rewards-right .progress{ width:150px; height:8px; background:#0c1420; border-radius:6px; overflow:hidden; border:1px solid #1d2b41; }
+.rewards-right .progress{ width:150px; height:8px; background:white; border-radius:6px; overflow:hidden; border:none }
 .progress-bar{ height:100%; background: linear-gradient(90deg,#2b98ff,#16a34a); }
 
 /* ---------- Quick Actions ---------- */
@@ -155,7 +155,7 @@ body::before{
 }
 .btn--primary{ background: var(--color-primary); color:#fff; border-color:#0a58bd; }
 .btn--secondary{ background:#1a2a46; border-color:#1e3154; color:#cfe3ff; }
-.btn--outline{ background:transparent; border-color:#37507a; color:#d0e2ff; }
+.btn--outline{ background:transparent; border-color:#37507a; color:#5CAAFF; }
 .btn--sm{ padding:6px 10px; border-radius:10px; font-size:12px; }
 .btn--full-width{ width:100%; }
 button.pressed{ transform: scale(.98); }
@@ -287,7 +287,7 @@ button.pressed{ transform: scale(.98); }
 .service-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:8px; }
 .svc-tile{
   background: var(--color-bg-1); border:1px solid var(--color-border); color: var(--color-text);
-  padding: 12px; border-radius:12px; text-align:center; cursor:pointer;
+  padding: 8px; border-radius:12px; text-align:center; cursor:pointer;
 }
 
 /* ---------- Lists / Selectables ---------- */
@@ -479,3 +479,105 @@ button.pressed{ transform: scale(.98); }
 
   .subpage{ background: linear-gradient(180deg,#f7faff, #ffffff); }
 }
+
+/* Lock the page scroll; we'll scroll inside the phone viewport */
+html, body { height: 100%; }
+body { overflow: hidden; }
+
+/* The in-app scrolling viewport that matches the phone frame */
+.app-viewport{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: var(--app-maxw);                 /* same width as your app content */
+  height: min(92vh, 840px);               /* same height as the frame */
+  transform: translate(-50%, -50%);
+  border-radius: 28px;                     /* slightly inside the bezel */
+  overflow: auto;                          /* <- scroll stays inside */
+  -webkit-overflow-scrolling: touch;       /* smooth iOS scrolling */
+  display: flex;
+  flex-direction: column;
+  z-index: 1;                              /* above body::before bezel */
+}
+
+/* Ensure inner sections still size nicely within the viewport */
+.status-bar,
+.app-header,
+.tabs-container{
+  width: 100%;
+  max-width: var(--app-maxw);
+}
+
+/* (Optional but tidy) clip any absolutely-positioned children */
+.app-viewport * { contain: layout paint; }
+
+
+/* Hide scrollbar but keep scroll functionality */
+.app-viewport {
+  scrollbar-width: none;        /* Firefox */
+}
+.app-viewport::-webkit-scrollbar {
+  display: none;                /* Chrome, Edge, Safari */
+}
+
+/* --- Compliance cards: fix cut-off text and layout --- */
+.compliance-row{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Let cards grow to fit content; lay out as icon | text | button */
+.comp-item{
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 12px;
+  align-items: start;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-card, rgba(255,255,255,0.04)); /* keeps your theme look; safe fallback */
+  height: auto;          /* <-- override any fixed height */
+  min-height: 64px;      /* sensible floor so very short content still looks good */
+}
+
+/* Icon sizing */
+.comp-icon{
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Text column: allow proper wrapping and prevent grid from squishing it */
+.comp-text{
+  min-width: 0;                 /* critical: lets text wrap inside a grid */
+  overflow-wrap: anywhere;      /* break long tokens if needed */
+  word-break: break-word;
+}
+
+/* Title + status spacing and legible line-height */
+.comp-text h4{
+  margin: 0 0 4px;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.comp-status{
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: normal;          /* ensure wrapping */
+}
+
+/* Button stays compact and doesn’t squeeze the text */
+.comp-cta{
+  align-self: start;
+  white-space: nowrap;
+}
+
+/* OPTIONAL: if you want the text area to scroll inside the card for very long content,
+   uncomment this block (no HTML changes needed). This will show a small scrollbar. */
+/*
+.comp-text{
+  max-height: 84px;
+  overflow-y: auto;
+}
+*/
